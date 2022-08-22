@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree1
 {
-    public class BST
+    public class BST<T> where T : IComparable<T>
     {
-        /// <summary>
-        /// Generic Binary search tree is defined
-        /// Due to generic class, Icomparable method is defined to use CompareTo inside the program
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        public class BST<T> where T : IComparable<T>
-        {
+       
             public T NodeData { get; set; }
             public BST<T> LeftTree { get; set; }
             public BST<T> RightTree { get; set; }
@@ -32,7 +26,7 @@ namespace BinarySearchTree1
 
             int LeftCount = 0;
             int RightCount = 0;
-            bool result = false;
+            //bool result = false;
 
             public void Insert(T item)//create method and pass parameter item
             {
@@ -53,6 +47,13 @@ namespace BinarySearchTree1
                 }
             }
 
+            /// <summary>
+            /// Get size of Binary Search Tree
+            /// </summary>
+            public void GetSize()
+            {
+                Console.WriteLine("\nSize " + (1 + LeftCount + RightCount));
+            }
             public void Display()
             {
                 if (LeftTree != null)
@@ -69,8 +70,3 @@ namespace BinarySearchTree1
             }
         }
     }
-
-
-
-}
-
